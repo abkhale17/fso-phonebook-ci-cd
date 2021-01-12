@@ -1,4 +1,4 @@
-.Notify {
+.success {
 	padding: 8px;
 	padding-left: 30px;
 	font-weight: bold;
@@ -9,7 +9,7 @@
 	background-color: #e6d8d8;
 }
 
-.Error {
+.error {
 	padding: 8px;
 	padding-left: 30px;
 	font-weight: bold;

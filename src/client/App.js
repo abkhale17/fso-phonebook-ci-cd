@@ -90,7 +90,7 @@ const App = () => {
 
   const personsToShow = filterString.length === 0
     ? persons
-    : persons.filter(p => p.name.toLowerCase().indexOf(filterString.toLowerCase()) > 0)
+    : persons.filter(p => p.name.toLowerCase().indexOf(filterString.toLowerCase()) > -1)
 
   return (
     <div>
