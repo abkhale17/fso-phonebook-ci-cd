@@ -1,5 +1,4 @@
-const path = require('path')
-require('dotenv').config({ path: path.resolve(__dirname, '.env') })
+const config = require('../../utils/config')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -8,11 +7,9 @@ const Person = require('./models/person')
 
 const app = express()
 
-const url = process.env.MONGODB_URI
+console.log('connecting to', config.MONGODB_URI)
 
-console.log('connecting to', url)
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('connected to MongoDB')
   })
@@ -111,8 +108,10 @@ const errorHandler = (error, request, response, next) => {
 
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 8080
+const PORT = config.PORT
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+module.exports = app
