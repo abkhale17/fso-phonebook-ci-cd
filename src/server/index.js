@@ -1,8 +1,8 @@
-const config = require('../../utils/config')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const config = require('../../utils/config')
 const Person = require('./models/person')
 
 const app = express()
@@ -94,6 +94,7 @@ app.delete('/api/persons/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+// eslint-disable-next-line consistent-return
 const errorHandler = (error, request, response, next) => {
   console.error(error.message)
 
@@ -108,7 +109,7 @@ const errorHandler = (error, request, response, next) => {
 
 app.use(errorHandler)
 
-const PORT = config.PORT
+const { PORT } = config
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

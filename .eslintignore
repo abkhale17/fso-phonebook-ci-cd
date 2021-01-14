@@ -1,0 +1,8 @@
+webpack.config.js
+node_modules/
+dist/
+test/
+utils/
+jest.config.js
+jest.setup.js
+src/server/models/person.js
