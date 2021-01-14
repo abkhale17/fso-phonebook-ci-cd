@@ -20,9 +20,9 @@ jobs:
         run: npm install
       - name: lint
         run: npm run eslint
-      - name: build and prod mode
-        run: npm start
+      - name: build
+        run: npm run build
       - name: test
         run: npm run test
         env:
-          TEST_MONGODB_URI = ${{secrets.TEST_MONGODB_URI}}
+          MONGODB_URI = ${{secrets.TEST_MONGODB_URI}}
